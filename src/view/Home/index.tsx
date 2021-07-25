@@ -14,24 +14,7 @@ interface IProduct {
 const Home: React.FC = () => {
 
     /*
-    function EnviaDados() {
-    let nome = document.querySelector("#nome").value;
-    let email = document.querySelector("#email").value;
-    let recebeDados = { nome: nome, email: email };
-
-    dadosCliente = JSON.stringify(recebeDados);
-
-    localStorage.setItem("dadosCliente", dadosCliente);
-
-    alert(`Obrigado ${nome}! Recebemos seus dados.`)
-
-    window.location.href = "https://mrkelvinpires.github.io/loja-landing-page-bf/index.html";
-}
-
-function AddCar() {
-    let buttoncar = document.querySelector('#buttoncar')
-    alert("Adicionado ao carrinho com sucesso!")
-}
+    
 
 //////\\\\\\\
     <script>
@@ -82,11 +65,26 @@ function AddCar() {
         }
 
     </script>
+    \\\\\\\\///////////
+    function EnviaDados() {
+    let nome = document.querySelector("#nome").value;
+    let email = document.querySelector("#email").value;
+    let recebeDados = { nome: nome, email: email };
+
+    dadosCliente = JSON.stringify(recebeDados);
+
+    localStorage.setItem("dadosCliente", dadosCliente);
+
+    alert(`Obrigado ${nome}! Recebemos seus dados.`)
+
+    window.location.href = "https://mrkelvinpires.github.io/loja-landing-page-bf/index.html";
+}
+
+function AddCar() {
+    let buttoncar = document.querySelector('#buttoncar')
+    alert("Adicionado ao carrinho com sucesso!")
+}
     */
-
-    
-
-
     const [data, setData] = useState<IProduct[]>([]);
     useEffect(() => {
         api.get("").then(
@@ -96,44 +94,44 @@ function AddCar() {
         )
     }, [])
 
-    /*
-            class Venda {
-            constructor() {
-                this.produtos = [];
-            }
-            
-            adicionarProduto(produto) {
-                this.produtos.push(produto);
-            }
-            
-            totalVenda() {
-                this.soma = 0;
-                this.produtos.forEach((produto) => {
-                    this.soma = this.soma + produto.valor;
-                });
-                
-                return this.soma;
-            }
-    */
+    // Array.prototype.push.apply(vegetais, maisVegetais);
+        // let produtosCar = [valor, index];
+        // let dadosClienteEntrega = [];
+        // produtosCar.push(index);
+        // console.log(produtosCar);
 
-    let produtosCar = [];
-    let dadosClienteEntrega = [];
     const handleCart = (index: number) => {
-
         const productStore = JSON.stringify(data[index]);
-
         localStorage.setItem(`@Produto-${index}`, productStore)
     }
 
+    /*
+    nome-completo
+    email
+    endereco
+    msg-vendedor
+
+        const dadosClienteEntrega = (index: string) => {
+        let dados = [].document.querySelector("#nome-completo").value;
+        let email = document.querySelector("#email").value;
+        let endereco: string = document.querySelector("#endereco").value;
+        let msg-vendedor = document.querySelector("#msg-vendedor").value;
+        let dadosCliente = JSON.stringify(data[index]);
+        localStorage.setItem(`@Produto-${index}`, dadosCliente)
+    }
+
+    */
+
+
     return (
         <Container>
-
             <nav className="menus-n1" id="menus-n1">
-                <a className="menu-logo" href="/"><img width="150px" src="commesystem.png" /></a>
-
                 <div className="container-menu">
                     <div className="menu-div-n1" id="menu-div-n1">
                         <ul className="menu-ul" id="menu-ul">
+                            <a className="menu-logo" href="/"><img width="150px" src="commesystem.png" /></a>
+                        </ul>
+                            <ul className="menu-ul" id="menu-ul">
                             <li className="menu-li">
                                 <a className="menu-a" href="#">Loja</a>
                             </li>
@@ -149,12 +147,8 @@ function AddCar() {
                             <li className="menu-li">
                                 <a className="menu-a" href="#">Trabalhe aqui</a>
                             </li>
+                            <button className="button-entrar menu-li" id="button-entrar">..:: Entrar ::..<i className="button-i"></i></button>
                         </ul>
-
-                        <div className="entrar" id="entrar">
-                            <a href="#" className="menu-a-right">ENTRAR</a>
-                            <button className="button-contactus">= Entrar =<i className="button-i"></i></button>
-                        </div>
                     </div>
                 </div>
             </nav>
@@ -172,7 +166,7 @@ function AddCar() {
 
             <section className="container-form" id="container-form">
                 <div className="container-title" id="container-title">
-                    <h4>Para finalizar sua compra digite seus dados de contato e endereço de entrega abaixo:</h4>
+                    <h4>Para finalizar sua compra digite seus dados de contato e endereço para entrega abaixo:</h4>
 
                     <form className="form-seller" id="form-seller" action="">
                         <div className="div-row">
@@ -200,8 +194,8 @@ function AddCar() {
                         </div>
                     </form>
 
-                    <div className="text-center">
-                        <button className="button-end-seller" id="end-seller">FINALIZAR COMPRA</button>
+                    <div className="div-end-sale">
+                       <button className="button-end-seller" id="end-sale" >FINALIZAR COMPRA</button>
                     </div>
                 </div>
             </section>

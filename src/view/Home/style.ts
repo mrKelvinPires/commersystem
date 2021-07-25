@@ -6,27 +6,20 @@ export const Container = styled.div`
     font-family: 'Roboto', sans-serif;
     background-color: #d5d6d196;
     width: 95%;
-    margin: auto;
+    margin: 1px auto;
 
-    
     .menu-ul{
         list-style-type: none;
-        display: flex;
+        display: inline-flex;
         
         .menu-li{
-            width: 9rem;
-            height: 2rem;
+            width: 8.5rem;
+
             background: #ff0823;
             border-radius: 1rem;
             text-align: center;
-            margin: 1px auto;
+            margin: 1rem 1rem;
             font-size: 20px;
-            display: table;
-
-            :hover{
-                background: #d5d6d196;
-                border: 0 solid silver;
-            }
 
             .menu-a{
                 text-decoration: none;
@@ -38,7 +31,10 @@ export const Container = styled.div`
             }
         }
     }
-
+    #button-entrar{
+        color: red;
+        background: white;
+    }
     .section-product {
         height: 100vh;
         width: 100%;
@@ -58,7 +54,6 @@ export const Container = styled.div`
         }
     }
     
-    // FORM END SELLER
     .container-form{
         text-align: center;
         margin-top: 0 auto; 
@@ -67,19 +62,23 @@ export const Container = styled.div`
             color: #314584;
         }
 
-    .form-control{
-        width: 30%;
-        border-radius: 10px;
+        h4{
+            background: #ff7171;
+            color: #000000;
+        }    
+
+        .form-control{
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        .msg-vendedor{
+            width: 20%;
+            height: 70px;
+            border-radius: 10px;
+        }
     }
 
-    .msg-vendedor{
-        width: 20%;
-        height: 70px;
-        border-radius: 10px;
-    }
-}
-    
-    // FOOTER
     footer {
         min-height: 50px;
         background-color: #314584;
