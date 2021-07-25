@@ -6,38 +6,41 @@ export const Container = styled.div`
     font-family: 'Roboto', sans-serif;
     background-color: #d5d6d196;
     width: 95%;
-    margin: 1px auto;
+    margin: auto;
 
-    .menu-ul{
-        list-style-type: none;
-        display: inline-flex;
-        
-        .menu-li{
-            width: 8.5rem;
-
-            background: #ff0823;
-            border-radius: 1rem;
+    .menu-div-n1{
+        text-align: center;
+            
+        .menu-ul{
+            list-style-type: none;
+            display: inline-flex;
             text-align: center;
-            margin: 1rem 1rem;
-            font-size: 20px;
 
-            .menu-a{
-                text-decoration: none;
-                color: white;
+            .menu-li{
+                width: 8.5rem;
+                height: 1.7rem;
+                background: #ff0823;
+                border-radius: 1rem;
+                margin: 1.7rem 1rem;
+                font-size: 20px;
 
-                :hover{
-                    color: black;
+                .menu-a{
+                    text-decoration: none;
+                    color: white;
+
+                    :hover{
+                        color: black;
+                    }
                 }
             }
         }
     }
+
     #button-entrar{
         color: red;
         background: white;
     }
     .section-product {
-        height: 100vh;
-        width: 100%;
         background: #d5d6d196;
         display: flex;
         flex-wrap: wrap;
@@ -56,8 +59,7 @@ export const Container = styled.div`
     
     .container-form{
         text-align: center;
-        margin-top: 0 auto; 
-    
+
         .span-name{
             color: #314584;
         }
@@ -65,11 +67,15 @@ export const Container = styled.div`
         h4{
             background: #ff7171;
             color: #000000;
+            margin: 0 0 1rem 0;
         }    
 
         .form-control{
             width: 30%;
             border-radius: 10px;
+            border: 0 auto;
+            margin: 0 0 .5rem 0;
+
         }
 
         .msg-vendedor{
@@ -80,22 +86,13 @@ export const Container = styled.div`
     }
 
     footer {
-        min-height: 50px;
+        margin: 3rem 0 0 0;
         background-color: #314584;
-        padding: 10px;
-        color: #fff;
-    }
-    
-    footer h5 {
-        text-align: center;
-        font-size: 25px;
-    }
-    
-    footer h1 {
         color: #ff3946;
-        text-align: center;
-        font-weight: bold;
-        padding-top: 3px;
     }
-
+    
+    footer h6 {
+        text-align: center;
+        font-size: 20px;
+    }
 `

@@ -129,9 +129,9 @@ function AddCar() {
                 <div className="container-menu">
                     <div className="menu-div-n1" id="menu-div-n1">
                         <ul className="menu-ul" id="menu-ul">
-                            <a className="menu-logo" href="/"><img width="150px" src="commesystem.png" /></a>
-                        </ul>
-                            <ul className="menu-ul" id="menu-ul">
+                            
+                            <img width="150px" src="commesystem.png" />
+                    
                             <li className="menu-li">
                                 <a className="menu-a" href="#">Loja</a>
                             </li>
@@ -170,7 +170,6 @@ function AddCar() {
 
                     <form className="form-seller" id="form-seller" action="">
                         <div className="div-row">
-
                             <div className="container-form-input">
                                 <span className="span-name" id="nome-completo">*Nome completo:</span><br/>
                                 <input type="text" className="form-control" id="nome-completo" placeholder="Seu nome"/>
@@ -201,8 +200,7 @@ function AddCar() {
             </section>
 
             <footer>
-                <h5>viniCom</h5>
-                <h1>ExplosionCoders</h1>
+                <h6>viniCom | ExplosionCoders</h6>
             </footer>
         </Container>
     );
