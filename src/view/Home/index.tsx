@@ -12,6 +12,31 @@ interface IProduct {
 
 
 const Home: React.FC = () => {
+
+    /*
+    function EnviaDados() {
+    let nome = document.querySelector("#nome").value;
+    let email = document.querySelector("#email").value;
+    let recebeDados = { nome: nome, email: email };
+
+    dadosCliente = JSON.stringify(recebeDados);
+
+    localStorage.setItem("dadosCliente", dadosCliente);
+
+    alert(`Obrigado ${nome}! Recebemos seus dados.`)
+
+    window.location.href = "https://mrkelvinpires.github.io/loja-landing-page-bf/index.html";
+}
+
+function AddCar() {
+    let buttoncar = document.querySelector('#buttoncar')
+    alert("Adicionado ao carrinho com sucesso!")
+}
+    */
+
+
+
+
     const [data, setData] = useState<IProduct[]>([]);
     useEffect(() => {
         api.get("").then(
@@ -60,7 +85,6 @@ const Home: React.FC = () => {
                 </div>
             </nav>
             <section className="section-product" id="section-product">
-                <div className="section-product">
                 {data.map((prod, index) => (
                     <div className="product-content" key={prod.id}>
                         <img src={prod.photo} alt="iphone" width="200" height="auto" />
@@ -70,51 +94,50 @@ const Home: React.FC = () => {
                         <button className="button-add-car-product" id="button-add-car-product" onClick={() => handleCart(index)}>ADICIONAR AO CARRINHO</button>
                     </div>
                 ))}
+            </section>
+
+            <section className="container-form" id="container-form">
+                <div className="container-title" id="container-title">
+                    <h4>Para finalizar sua compra digite seus dados de contato e endereço de entrega abaixo:</h4>
+
+                    <form className="form-seller" id="form-seller" action="">
+                        <div className="div-row">
+
+                            <div className="container-form-input">
+                                <span className="span-name" id="nome-completo">*Nome completo:</span><br/>
+                                <input type="text" className="form-control" id="nome-completo" placeholder="Seu nome"/>
+                            </div>
+
+                            <div className="container-form-input">
+                                <span className="span-name">*Email:</span><br/>
+                                <input type="text" className="form-control" id="email" placeholder="Seu Email"/>
+                            </div>
+
+                            <div className="container-form-input" id="container-form-input">
+                                <span className="span-name">*Endereço:</span><br/>
+                                <input type="text" className="form-control" id="endereco" placeholder="Endereço completo"/>
+                            </div>
+                        </div>
+                        <div className="div-row">
+                            <div className="div-cont-textarea">
+                            <span className="span-name" id="mensagem-vendedor">Mensagem ao vendedor:</span><br/>
+                            <textarea name="" itemType="text" id="msg-vendedor" className="msg-vendedor" placeholder="Mensagem ao vendedor."></textarea>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div className="text-center">
+                        <button className="button-end-seller" id="end-seller">FINALIZAR COMPRA</button>
+                    </div>
                 </div>
             </section>
 
-<section className="container-form" id="container-form">
-        <div className="container-title" id="container-title">
-            <h4>Para finalizar sua compra digite seus dados de contato e endereço de entrega abaixo:</h4>
-
-            <form className="form-seller" id="form-seller" action="">
-                <div className="div-row">
-
-                    <div className="container-form-input">
-                        <span className="span-name" id="nome-completo">*Nome completo:</span><br/>
-                        <input type="text" className="form-control" id="nome-completo" placeholder="Seu nome"/>
-                    </div>
-
-                    <div className="container-form-input">
-                        <span className="span-name">*Email:</span><br/>
-                        <input type="text" className="form-control" id="email" placeholder="Seu Email"/>
-                    </div>
-
-                    <div className="container-form-input" id="container-form-input">
-                        <span className="span-name">*Endereço:</span><br/>
-                        <input type="text" className="form-control" id="endereco" placeholder="Endereço completo"/>
-                    </div>
-                </div>
-                <div className="div-row">
-                    <div className="div-cont-textarea">
-                    <span className="span-name" id="mensagem-vendedor">Mensagem ao vendedor:</span><br/>
-                    <textarea name="" itemType="text" id="msg-vendedor" className="msg-vendedor" placeholder="Mensagem ao vendedor."></textarea>
-                    </div>
-                </div>
-            </form>
-
-            <div className="text-center">
-                <button className="button-end-seller" id="end-seller">FINALIZAR COMPRA</button>
-            </div>
-        </div>
-</section>
-
-<footer>
-    <h5>viniCom</h5>
-    <h1>ExplosionCoders</h1>
-</footer>
+            <footer>
+                <h5>viniCom</h5>
+                <h1>ExplosionCoders</h1>
+            </footer>
         </Container>
-                );
+    );
 }
 
                 export default Home;

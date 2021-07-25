@@ -57,10 +57,11 @@ export const Container = styled.div`
             margin: 10px;
         }
     }
+    
     // FORM END SELLER
     .container-form{
-        // border-radius: 10px;
         text-align: center;
+        margin-top: 0 auto; 
     
         .span-name{
             color: #314584;
