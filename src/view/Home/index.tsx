@@ -32,9 +32,59 @@ function AddCar() {
     let buttoncar = document.querySelector('#buttoncar')
     alert("Adicionado ao carrinho com sucesso!")
 }
+
+//////\\\\\\\
+    <script>
+        class Produto {
+            constructor(nome, valor) {
+                this.nome = nome;
+                this.valor = valor;
+            }
+        }
+
+        var arroz = new Produto("Arroz", 5);
+        var feijao = new Produto("Feijão", 8);
+        var farinha = new Produto("Farinha", 10);
+        var macarrao = new Produto("Macarrão", 4.50);
+        var sal = new Produto("Sal", 3.20);
+        var produtos = [arroz, feijao, farinha, macarrao, sal];
+
+        class Venda {
+            constructor() {
+                this.produtos = [];
+            }
+            
+            adicionarProduto(produto) {
+                this.produtos.push(produto);
+            }
+            
+            totalVenda() {
+                this.soma = 0;
+                this.produtos.forEach((produto) => {
+                    this.soma = this.soma + produto.valor;
+                });
+                
+                return this.soma;
+            }
+        }
+
+        var venda = new Venda();
+
+        function adicionar() {
+            var codigo = document.querySelector("#codigo").value;
+            venda.adicionarProduto(produtos[codigo]);
+            document.querySelector("#codigo").value = "";
+            alert("Produto adicionado com sucesso!");
+        }
+
+        function finalizarVenda() {
+            document.querySelector("#total").innerHTML = "O total da sua venda é: " + venda.totalVenda();
+        }
+
+    </script>
     */
 
-
+    
 
 
     const [data, setData] = useState<IProduct[]>([]);
@@ -46,8 +96,32 @@ function AddCar() {
         )
     }, [])
 
+    /*
+            class Venda {
+            constructor() {
+                this.produtos = [];
+            }
+            
+            adicionarProduto(produto) {
+                this.produtos.push(produto);
+            }
+            
+            totalVenda() {
+                this.soma = 0;
+                this.produtos.forEach((produto) => {
+                    this.soma = this.soma + produto.valor;
+                });
+                
+                return this.soma;
+            }
+    */
+
+    let produtosCar = [];
+    let dadosClienteEntrega = [];
     const handleCart = (index: number) => {
+
         const productStore = JSON.stringify(data[index]);
+
         localStorage.setItem(`@Produto-${index}`, productStore)
     }
 
