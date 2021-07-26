@@ -23,8 +23,8 @@ const Home: React.FC = () => {
 
     const handleCart = (index: number) => {
         const productStore = JSON.stringify(data[index]);
-        localStorage.setItem(`@Produto-${index}`, productStore)
-        alert(`Adicionado ao carrinho com sucesso!`)
+        localStorage.setItem(`@Produto-${index}`, productStore);
+        alert(`Adicionado ao carrinho com sucesso!`);
     }
 
     let endSale = (index: string) => {
@@ -40,15 +40,14 @@ const Home: React.FC = () => {
             Mensagem: msgVendedor
         };
 
-        console.log(dadosCliente);
-
         const dadosDeEnvioCliente = JSON.stringify(dadosCliente);
-        localStorage.setItem(`@Cliente`, dadosDeEnvioCliente)
+        localStorage.setItem(`@Cliente${index}`, dadosDeEnvioCliente);
 
-        alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`)
+        alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`);
 
         // window.location.href = "/";
     }
+
 
     return (
         <Container>
@@ -133,7 +132,8 @@ const Home: React.FC = () => {
                     <div className="div-end-sale">
                         <button className="button-end-seller" 
                             id="end-sale" 
-                           >
+                           // onClick={() => endSale()} //Erro
+                            >
                             FINALIZAR COMPRA
                         </button>
                     </div>

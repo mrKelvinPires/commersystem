@@ -45,6 +45,11 @@ export const Container = styled.div`
         color: #314584;
         background: #ff6d6d;
         font-weight: 600;
+
+        :hover{
+            color: #ff6d6d;
+            background: #314584;
+        }
     }
 
     #end-sale{
