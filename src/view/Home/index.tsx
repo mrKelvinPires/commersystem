@@ -32,7 +32,6 @@ const Home: React.FC = () => {
         let endereco = document.getElementById("#endereco");
         let msgVendedor = document.getElementById("#msgVendedor");
 
-
         let dadosCliente = {
             Nome: nomeCompleto,
             Email: email,
@@ -107,12 +106,10 @@ const Home: React.FC = () => {
                                 <span className="span-name" id="nome-completo">*Nome completo:</span><br />
                                 <input type="text" className="form-control" id="nomeCompleto" placeholder="   Seu nome" />
                             </div>
-
                             <div className="container-form-input">
                                 <span className="span-name">*Email:</span><br />
                                 <input type="email" className="form-control" id="email" inputMode="email" placeholder="   Seu Email" />
                             </div>
-
                             <div className="container-form-input" id="container-form-input">
                                 <span className="span-name">*Endereço:</span><br />
                                 <input type="text" className="form-control" id="endereco" placeholder="   Endereço completo" />
@@ -131,8 +128,7 @@ const Home: React.FC = () => {
                     <div className="div-end-sale">
                         <button className="button-end-seller"
                             id="end-sale"
-                            onClick={() => endSale()}
-                        >
+                            onClick={() => endSale()}>
                             FINALIZAR COMPRA
                         </button>
                     </div>
