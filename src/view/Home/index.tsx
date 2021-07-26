@@ -11,7 +11,6 @@ interface IProduct {
 }
 
 const Home: React.FC = () => {
-
     const [data, setData] = useState<IProduct[]>([]);
     useEffect(() => {
         api.get("").then(
@@ -27,27 +26,27 @@ const Home: React.FC = () => {
         alert(`Adicionado ao carrinho com sucesso!`);
     }
 
-    // let endSale = (index: string) => {
-    //     let nomeCompleto = document.getElementById("nomeCompleto");
-    //     let email = document.getElementById("email");
-    //     let endereco = document.getElementById("endereco");
-    //     let msgVendedor = document.getElementById("msgVendedor");
+    function endSale() {
+        let nomeCompleto = document.getElementById("#nomeCompleto");
+        let email = document.getElementById("#email");
+        let endereco = document.getElementById("#endereco");
+        let msgVendedor = document.getElementById("#msgVendedor");
 
-    //     let dadosCliente = {
-    //         Nome: nomeCompleto, 
-    //         Email: email, 
-    //         Endereco: endereco,
-    //         Mensagem: msgVendedor
-    //     };
 
-    //     const dadosDeEnvioCliente = JSON.stringify(dadosCliente);
-    //     localStorage.setItem(`@Cliente${index}`, dadosDeEnvioCliente);
+        let dadosCliente = {
+            Nome: nomeCompleto,
+            Email: email,
+            Endereco: endereco,
+            Mensagem: msgVendedor
+        };
 
-    //     alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`);
+        let dadosDeEnvioCliente = JSON.stringify(dadosCliente);
+        localStorage.setItem(`@Cliente`, dadosDeEnvioCliente);
 
-    //     // window.location.href = "/";
-    // }
+        alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`);
 
+        window.location.href = "/";
+    }
 
     return (
         <Container>
@@ -56,8 +55,8 @@ const Home: React.FC = () => {
                     <div className="menu-div-n1" id="menu-div-n1">
                         <ul className="menu-ul" id="menu-ul">
 
-                            <img width="150px" src="commesystem.png" alt=""/>
-                    
+                            <img width="150px" src="commesystem.png" alt="" />
+
                             <li className="menu-li">
                                 <a className="menu-a" href="#">Loja</a>
                             </li>
@@ -76,7 +75,7 @@ const Home: React.FC = () => {
                             <button className="button-entrar menu-li" id="button-entrar">
                                 ..:: Entrar ::..
                                 <i className="button-i">
-                            </i></button>
+                                </i></button>
                         </ul>
                     </div>
                 </div>
@@ -88,12 +87,12 @@ const Home: React.FC = () => {
                         <h4>{prod.name}</h4>
                         <span>{prod.description}</span>
                         <h6>R$ {prod.price}</h6>
-                            <button 
-                                className="button-add-car-product" 
-                                id="button-add-car-product" 
-                                onClick={() => handleCart(index)}>
-                                ADICIONAR AO CARRINHO
-                            </button>
+                        <button
+                            className="button-add-car-product"
+                            id="button-add-car-product"
+                            onClick={() => handleCart(index)}>
+                            ADICIONAR AO CARRINHO
+                        </button>
                     </div>
                 ))}
             </section>
@@ -105,35 +104,35 @@ const Home: React.FC = () => {
                     <form className="form-seller" id="form-seller" action="">
                         <div className="div-row">
                             <div className="container-form-input">
-                                <span className="span-name" id="nome-completo">*Nome completo:</span><br/>
-                                <input type="text" className="form-control" id="nomeCompleto" placeholder="   Seu nome"/>
+                                <span className="span-name" id="nome-completo">*Nome completo:</span><br />
+                                <input type="text" className="form-control" id="nomeCompleto" placeholder="   Seu nome" />
                             </div>
 
                             <div className="container-form-input">
-                                <span className="span-name">*Email:</span><br/> 
-                                <input type="email" className="form-control" id="email" inputMode="email" placeholder="   Seu Email"/>
+                                <span className="span-name">*Email:</span><br />
+                                <input type="email" className="form-control" id="email" inputMode="email" placeholder="   Seu Email" />
                             </div>
 
                             <div className="container-form-input" id="container-form-input">
-                                <span className="span-name">*Endereço:</span><br/>
-                                <input type="text" className="form-control" id="endereco" placeholder="   Endereço completo"/>
+                                <span className="span-name">*Endereço:</span><br />
+                                <input type="text" className="form-control" id="endereco" placeholder="   Endereço completo" />
                             </div>
                         </div>
                         <div className="div-row">
                             <div className="div-cont-textarea">
-                            <span className="span-name" id="mensagem-vendedor">Mensagem ao vendedor:</span><br/>
-                            <textarea name="" itemType="text" id="msgVendedor" className="msg-vendedor" 
-                                placeholder="  Mensagem ao vendedor.">                
-                            </textarea>
+                                <span className="span-name" id="mensagem-vendedor">Mensagem ao vendedor:</span><br />
+                                <textarea name="" itemType="text" id="msgVendedor" className="msg-vendedor"
+                                    placeholder="  Mensagem ao vendedor.">
+                                </textarea>
                             </div>
                         </div>
                     </form>
 
                     <div className="div-end-sale">
-                        <button className="button-end-seller" 
-                            id="end-sale" 
-                           // onClick={() => endSale()} //Erro
-                            >
+                        <button className="button-end-seller"
+                            id="end-sale"
+                            onClick={() => endSale()}
+                        >
                             FINALIZAR COMPRA
                         </button>
                     </div>
