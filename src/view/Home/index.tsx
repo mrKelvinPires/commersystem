@@ -10,81 +10,8 @@ interface IProduct {
     price: number;
 }
 
-
 const Home: React.FC = () => {
 
-    /*
-    
-
-//////\\\\\\\
-    <script>
-        class Produto {
-            constructor(nome, valor) {
-                this.nome = nome;
-                this.valor = valor;
-            }
-        }
-
-        var arroz = new Produto("Arroz", 5);
-        var feijao = new Produto("Feijão", 8);
-        var farinha = new Produto("Farinha", 10);
-        var macarrao = new Produto("Macarrão", 4.50);
-        var sal = new Produto("Sal", 3.20);
-        var produtos = [arroz, feijao, farinha, macarrao, sal];
-
-        class Venda {
-            constructor() {
-                this.produtos = [];
-            }
-            
-            adicionarProduto(produto) {
-                this.produtos.push(produto);
-            }
-            
-            totalVenda() {
-                this.soma = 0;
-                this.produtos.forEach((produto) => {
-                    this.soma = this.soma + produto.valor;
-                });
-                
-                return this.soma;
-            }
-        }
-
-        var venda = new Venda();
-
-        function adicionar() {
-            var codigo = document.querySelector("#codigo").value;
-            venda.adicionarProduto(produtos[codigo]);
-            document.querySelector("#codigo").value = "";
-            alert("Produto adicionado com sucesso!");
-        }
-
-        function finalizarVenda() {
-            document.querySelector("#total").innerHTML = "O total da sua venda é: " + venda.totalVenda();
-        }
-
-    </script>
-    \\\\\\\\///////////
-    function EnviaDados() {
-    let nome = document.querySelector("#nome").value;
-    let email = document.querySelector("#email").value;
-    let recebeDados = { nome: nome, email: email };
-
-    dadosCliente = JSON.stringify(recebeDados);
-
-    localStorage.setItem("dadosCliente", dadosCliente);
-
-    alert(`Obrigado ${nome}! Recebemos seus dados.`)
-
-    window.location.href = "https://mrkelvinpires.github.io/loja-landing-page-bf/index.html";
-}
-
-function AddCar() {
-    let buttoncar = document.querySelector('#buttoncar')
-    alert("Adicionado ao carrinho com sucesso!")
-}
-    */
     const [data, setData] = useState<IProduct[]>([]);
     useEffect(() => {
         api.get("").then(
@@ -94,34 +21,34 @@ function AddCar() {
         )
     }, [])
 
-    // Array.prototype.push.apply(vegetais, maisVegetais);
-        // let produtosCar = [valor, index];
-        // let dadosClienteEntrega = [];
-        // produtosCar.push(index);
-        // console.log(produtosCar);
-
     const handleCart = (index: number) => {
         const productStore = JSON.stringify(data[index]);
         localStorage.setItem(`@Produto-${index}`, productStore)
+        alert(`Adicionado ao carrinho com sucesso!`)
     }
 
-    /*
-    nome-completo
-    email
-    endereco
-    msg-vendedor
+    let endSale = (index: string) => {
+        let nomeCompleto = document.getElementById("nomeCompleto");
+        let email = document.getElementById("email");
+        let endereco = document.getElementById("endereco");
+        let msgVendedor = document.getElementById("msgVendedor");
 
-        const dadosClienteEntrega = (index: string) => {
-        let dados = [].document.querySelector("#nome-completo").value;
-        let email = document.querySelector("#email").value;
-        let endereco: string = document.querySelector("#endereco").value;
-        let msg-vendedor = document.querySelector("#msg-vendedor").value;
-        let dadosCliente = JSON.stringify(data[index]);
-        localStorage.setItem(`@Produto-${index}`, dadosCliente)
+        let dadosCliente = {
+            Nome: nomeCompleto, 
+            Email: email, 
+            Endereco: endereco,
+            Mensagem: msgVendedor
+        };
+
+        console.log(dadosCliente);
+
+        const dadosDeEnvioCliente = JSON.stringify(dadosCliente);
+        localStorage.setItem(`@Cliente`, dadosDeEnvioCliente)
+
+        alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`)
+
+        // window.location.href = "/";
     }
-
-    */
-
 
     return (
         <Container>
@@ -129,7 +56,7 @@ function AddCar() {
                 <div className="container-menu">
                     <div className="menu-div-n1" id="menu-div-n1">
                         <ul className="menu-ul" id="menu-ul">
-                            
+
                             <img width="150px" src="commesystem.png" />
                     
                             <li className="menu-li">
@@ -147,7 +74,10 @@ function AddCar() {
                             <li className="menu-li">
                                 <a className="menu-a" href="#">Trabalhe aqui</a>
                             </li>
-                            <button className="button-entrar menu-li" id="button-entrar">..:: Entrar ::..<i className="button-i"></i></button>
+                            <button className="button-entrar menu-li" id="button-entrar">
+                                ..:: Entrar ::..
+                                <i className="button-i">
+                            </i></button>
                         </ul>
                     </div>
                 </div>
@@ -158,8 +88,13 @@ function AddCar() {
                         <img src={prod.photo} alt="iphone" width="200" height="auto" />
                         <h4>{prod.name}</h4>
                         <span>{prod.description}</span>
-                        <h6>{prod.price}</h6>
-                        <button className="button-add-car-product" id="button-add-car-product" onClick={() => handleCart(index)}>ADICIONAR AO CARRINHO</button>
+                        <h6>R$ {prod.price}</h6>
+                            <button 
+                                className="button-add-car-product" 
+                                id="button-add-car-product" 
+                                onClick={() => handleCart(index)}>
+                                ADICIONAR AO CARRINHO
+                            </button>
                     </div>
                 ))}
             </section>
@@ -172,29 +107,35 @@ function AddCar() {
                         <div className="div-row">
                             <div className="container-form-input">
                                 <span className="span-name" id="nome-completo">*Nome completo:</span><br/>
-                                <input type="text" className="form-control" id="nome-completo" placeholder="Seu nome"/>
+                                <input type="text" className="form-control" id="nomeCompleto" placeholder="   Seu nome"/>
                             </div>
 
                             <div className="container-form-input">
-                                <span className="span-name">*Email:</span><br/>
-                                <input type="text" className="form-control" id="email" placeholder="Seu Email"/>
+                                <span className="span-name">*Email:</span><br/> 
+                                <input type="email" className="form-control" id="email" inputMode="email" placeholder="   Seu Email"/>
                             </div>
 
                             <div className="container-form-input" id="container-form-input">
                                 <span className="span-name">*Endereço:</span><br/>
-                                <input type="text" className="form-control" id="endereco" placeholder="Endereço completo"/>
+                                <input type="text" className="form-control" id="endereco" placeholder="   Endereço completo"/>
                             </div>
                         </div>
                         <div className="div-row">
                             <div className="div-cont-textarea">
                             <span className="span-name" id="mensagem-vendedor">Mensagem ao vendedor:</span><br/>
-                            <textarea name="" itemType="text" id="msg-vendedor" className="msg-vendedor" placeholder="Mensagem ao vendedor."></textarea>
+                            <textarea name="" itemType="text" id="msgVendedor" className="msg-vendedor" 
+                                placeholder="  Mensagem ao vendedor.">                
+                            </textarea>
                             </div>
                         </div>
                     </form>
 
                     <div className="div-end-sale">
-                       <button className="button-end-seller" id="end-sale" >FINALIZAR COMPRA</button>
+                        <button className="button-end-seller" 
+                            id="end-sale" 
+                            onClick={() => endSale}>
+                            FINALIZAR COMPRA
+                        </button>
                     </div>
                 </div>
             </section>
@@ -206,4 +147,4 @@ function AddCar() {
     );
 }
 
-                export default Home;
+export default Home;

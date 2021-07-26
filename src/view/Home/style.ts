@@ -36,6 +36,32 @@ export const Container = styled.div`
         }
     }
 
+    #button-add-car-product{
+        border-radius: 1rem;
+        width: 8.5rem;
+        font-size: 10px;
+        margin: 0 auto;
+        border: 0;
+        color: #314584;
+        background: #ff6d6d;
+        font-weight: 600;
+    }
+
+    #end-sale{
+        border-radius: 1rem;
+        width: 11rem;
+        font-size: 15px;
+        margin: 5px auto;
+        color: #314584;
+        background: #ff6d6d;
+        font-weight: 600;
+
+        :hover{
+            color: #ff6d6d;
+            background: #314584;
+        }
+    }
+
     #button-entrar{
         color: red;
         background: white;
@@ -71,15 +97,15 @@ export const Container = styled.div`
         }    
 
         .form-control{
-            width: 30%;
+            width: 40rem;
+            height: 20px;
             border-radius: 10px;
-            border: 0 auto;
+            border: 1px solid red ;
             margin: 0 0 .5rem 0;
-
         }
 
         .msg-vendedor{
-            width: 20%;
+            width: 20rem;
             height: 70px;
             border-radius: 10px;
         }
