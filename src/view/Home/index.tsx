@@ -57,7 +57,7 @@ const Home: React.FC = () => {
                     <div className="menu-div-n1" id="menu-div-n1">
                         <ul className="menu-ul" id="menu-ul">
 
-                            <img width="150px" src="commesystem.png" />
+                            <img width="150px" src="commesystem.png" alt=""/>
                     
                             <li className="menu-li">
                                 <a className="menu-a" href="#">Loja</a>
@@ -133,7 +133,7 @@ const Home: React.FC = () => {
                     <div className="div-end-sale">
                         <button className="button-end-seller" 
                             id="end-sale" 
-                            onClick={() => endSale}>
+                           >
                             FINALIZAR COMPRA
                         </button>
                     </div>
