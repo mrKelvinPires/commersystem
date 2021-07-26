@@ -27,26 +27,26 @@ const Home: React.FC = () => {
         alert(`Adicionado ao carrinho com sucesso!`);
     }
 
-    let endSale = (index: string) => {
-        let nomeCompleto = document.getElementById("nomeCompleto");
-        let email = document.getElementById("email");
-        let endereco = document.getElementById("endereco");
-        let msgVendedor = document.getElementById("msgVendedor");
+    // let endSale = (index: string) => {
+    //     let nomeCompleto = document.getElementById("nomeCompleto");
+    //     let email = document.getElementById("email");
+    //     let endereco = document.getElementById("endereco");
+    //     let msgVendedor = document.getElementById("msgVendedor");
 
-        let dadosCliente = {
-            Nome: nomeCompleto, 
-            Email: email, 
-            Endereco: endereco,
-            Mensagem: msgVendedor
-        };
+    //     let dadosCliente = {
+    //         Nome: nomeCompleto, 
+    //         Email: email, 
+    //         Endereco: endereco,
+    //         Mensagem: msgVendedor
+    //     };
 
-        const dadosDeEnvioCliente = JSON.stringify(dadosCliente);
-        localStorage.setItem(`@Cliente${index}`, dadosDeEnvioCliente);
+    //     const dadosDeEnvioCliente = JSON.stringify(dadosCliente);
+    //     localStorage.setItem(`@Cliente${index}`, dadosDeEnvioCliente);
 
-        alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`);
+    //     alert(`Obrigado ${nomeCompleto}! Recebemos seu pedido e vamos embalar para o envio.`);
 
-        // window.location.href = "/";
-    }
+    //     // window.location.href = "/";
+    // }
 
 
     return (
